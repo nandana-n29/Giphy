@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Anime = () => {
+const Animals = () => {
   return (
     <div>
       
@@ -8,4 +8,4 @@ const Anime = () => {
   )
 }
 
-export default Anime
+export default Animals
