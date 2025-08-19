@@ -1,12 +1,22 @@
-import React, { createContext } from 'react'
+import React, { createContext, useContext } from 'react'
+import { GiphyFetch } from '@giphy/js-fetch-api'
 
-const gifcontext = createContext();
 
-const gifprovider = ({children}) => (
+const GifContext = createContext();
+
+const GifProvider = ({children}) => {
+    const gf = new GiphyFetch(import.meta.env.VITE_GIPHY_KEY);
     
-        <gifcontext.Provider>{children}</gifcontext.Provider>
+    
+    return(<GifContext.Provider value={gf}>{children}</GifContext.Provider>);
 
     
-)
+};
 
-export default gifprovider
+export const GifState=()=>{
+    return useContext(GifContext);
+}
+
+
+
+export default GifProvider
