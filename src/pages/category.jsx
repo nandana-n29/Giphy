@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Animals = () => {
+const category = () => {
   return (
     <div>
       
@@ -8,4 +8,4 @@ const Animals = () => {
   )
 }
 
-export default Animals
+export default category

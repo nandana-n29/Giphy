@@ -1,11 +1,9 @@
 import Navbar from "./component/Navbar";
 import Home from "./pages/Home";
-import Adjective from "./pages/Adjective";
-import Anime from "./pages/Anime";
-import Artndesign from "./pages/Artndesign";
-import Animals from "./pages/Animals";
+import category from "./pages/category";
+import search from "./pages/search";
+import singlegif from "./pages/singlegif";
 import Favourites from "./pages/Favourites";
-import Reactions from "./pages/Reactions";
 import { BrowserRouter as Router,Route,Routes } from "react-router-dom";
 
 export default function App() {
@@ -15,12 +13,11 @@ export default function App() {
          <Navbar></Navbar>
         <Routes>
           <Route path ="/" element={<Home/>}/>
-          <Route path ="/adjective" element={<Adjective/>}/>
-          <Route path ="/animals" element={<Animals/>}/>
-          <Route path ="/anime" element={<Anime/>}/>
-          <Route path ="/art&design" element={<Artndesign/>}/>
+          <Route path ="/:category" element={<category/>}/>
+          <Route path ="/search/:query" element={<search/>}/>
+          <Route path ="/:type/:slug" element={<singlegif/>}/>
           <Route path ="/favourites" element={<Favourites/>}/>
-          <Route path ="/reactions" element={<Reactions/>}/>
+          
         </Routes>
      
       </Router>

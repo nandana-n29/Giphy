@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Reactions = () => {
+const singlegif = () => {
   return (
     <div>
       
@@ -8,4 +8,4 @@ const Reactions = () => {
   )
 }
 
-export default Reactions
+export default singlegif
