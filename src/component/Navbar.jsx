@@ -11,8 +11,7 @@ import { GiphyFetch } from '@giphy/js-fetch-api';
 const Navbar = () => {
   const[categories , setCategories] = useState([]);
   const[showCategories , setShowCategories] = useState(false);
-  const[gifs,setGifs] = useState([]);
-  const[filter , setFilter] = useState(gifs);
+  
 
   const {gf} = GifState();
 
@@ -49,7 +48,7 @@ const Navbar = () => {
         </div>
         <div className='font-bold text-md flex gap-2 items-center '>
           {categories?.slice(0,5)?.map((category) =>{
-            return<Link to ={`/${category.name_encoded}`} className='gradient-hover'>{category.name}</Link>
+            return<Link key={category.name} to ={`/${category.name_encoded}`} className='gradient-hover'>{category.name}</Link>
             
           })
         }
