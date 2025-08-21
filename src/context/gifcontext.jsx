@@ -8,7 +8,7 @@ const GifContext = createContext();
 const GifProvider = ({children}) => {
     const gf =new GiphyFetch(import.meta.env.VITE_GIPHY_KEY);
     const[gifs,setGifs] = useState([]);
-    const[filter , setFilter] = useState(gifs);
+    const[filter , setFilter] = useState("gifs");
     
     
     return(<GifContext.Provider value={{gf ,gifs,setGifs,filter,setFilter}}>{children}</GifContext.Provider>);

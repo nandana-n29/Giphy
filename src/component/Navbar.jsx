@@ -4,6 +4,7 @@ import { HiEllipsisVertical,HiMiniBars3BottomRight } from "react-icons/hi2";
 import { useState } from 'react';
 import {GifState} from '../context/gifcontext'
 import { GiphyFetch } from '@giphy/js-fetch-api';
+import SearchGif from './SearchGif';
 
 
 
@@ -39,7 +40,8 @@ const Navbar = () => {
 
   return (
     <div>
-        <nav className='flex relative justify-between items-center '>
+        <nav >
+          <div className='flex relative justify-between items-center  '>
         <div>
         <Link to="/" className='text-5xl flex gap-2'>
         <img src="../giphy_logo_icon-freelogovectors.net_.png " alt="Logo not visible" className="w-8" />
@@ -75,9 +77,12 @@ const Navbar = () => {
         <div className='absolute right-0 top-14 px-10 pt-6 pb-9 w-full gradient z-20 '> 
           <span className="text-3xl font-extrabold">Categories</span>
             <hr className="bg-gray-100 opacity-50 my-5" />
-          <span>Reaction</span>
+          <span>{categories.map((category)=>{return <span>{category.name}</span>})}</span>
         </div>
         }
+        
+        </div>
+        <SearchGif></SearchGif>
       </nav>
     </div>
   )

@@ -3,6 +3,7 @@ import { GifState } from '../context/gifcontext';
 // import { GifState } from '../context/gifcontext';
 import Gif from '../component/Gif';
 import { useEffect } from 'react';
+import Filter from '../component/Filter';
 
 
 const Home = () => {
@@ -10,8 +11,15 @@ const Home = () => {
   const {gf,gifs,setGifs,filter,setFilter} = GifState();
 
   const fetchTrending = async() => {
+    let endpoint = "";
+
+    if (filter === "gifs") {
+      endpoint = "gifs";
+    } else if (filter === "stickers") {
+      endpoint = "stickers";
+    } 
     const result= await fetch(
-      `https://api.giphy.com/v1/gifs/trending?api_key=${import.meta.env.VITE_GIPHY_KEY}`
+      `https://api.giphy.com/v1/${endpoint}/trending?api_key=${import.meta.env.VITE_GIPHY_KEY}`
     );
     const output = await result.json();
     console.log(output.data);
@@ -26,8 +34,16 @@ const Home = () => {
   }, [filter]);
 
   return (
+    <div className='w-full min-h-screen overflow-hidden'>
+      <img
+        src="/banner.gif"
+        alt="earth banner"
+        className="mt-2 rounded w-full"
+      />
+    
     <div>
-      {/* <Filter></Filter> */}
+
+      <Filter showTrending></Filter>
 
       <div >
         {gifs?.map( (gif) => {
@@ -39,6 +55,7 @@ const Home = () => {
         
       </div>
       
+    </div>
     </div>
   )
 }

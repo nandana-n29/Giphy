@@ -6,12 +6,15 @@ import { BrowserRouter } from 'react-router-dom'
 import GifProvider from './context/gifcontext.jsx'
 
 createRoot(document.getElementById('root')).render(
+  
   <StrictMode>
+    
     <GifProvider>
     
     <App />
 
     </GifProvider>
+    
     
   </StrictMode>,
 )

@@ -1,20 +1,21 @@
 import Navbar from "./component/Navbar";
 import Home from "./pages/Home";
 import category from "./pages/category";
-import search from "./pages/search";
+import Search from "./pages/Search";
 import singlegif from "./pages/singlegif";
 import Favourites from "./pages/Favourites";
 import { BrowserRouter as Router,Route,Routes } from "react-router-dom";
 
 export default function App() {
   return (
-    <div>
+     <div className="py-4 mx-auto">
+      {/* <div className="container px-6 py-4 mx-auto"> */}
       <Router>
          <Navbar></Navbar>
         <Routes>
           <Route path ="/" element={<Home/>}/>
           <Route path ="/:category" element={<category/>}/>
-          <Route path ="/search/:query" element={<search/>}/>
+          <Route path ="/search/:query" element={<Search/>}/>
           <Route path ="/:type/:slug" element={<singlegif/>}/>
           <Route path ="/favourites" element={<Favourites/>}/>
           
@@ -22,5 +23,6 @@ export default function App() {
      
       </Router>
     </div>
+    // </div>
   )
 }
