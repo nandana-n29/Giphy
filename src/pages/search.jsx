@@ -39,7 +39,7 @@ const SearchPage = () => {
   return (
     <div className="my-4">
       <h2 className="text-5xl pb-3 font-extrabold">{query}</h2>
-      <Filter alignLeft={true} />
+      <Filter />
       {searchResults.length > 0 ? (
         <div className="columns-2 md:columns-3 lg:columns-4 gap-2">
           {searchResults.map((gif) => (

@@ -1,6 +1,6 @@
 import Navbar from "./component/Navbar";
 import Home from "./pages/Home";
-import category from "./pages/category";
+import Category from "./pages/Category";
 import Search from "./pages/Search";
 import singlegif from "./pages/singlegif";
 import Favourites from "./pages/Favourites";
@@ -14,7 +14,7 @@ export default function App() {
          <Navbar></Navbar>
         <Routes>
           <Route path ="/" element={<Home/>}/>
-          <Route path ="/:category" element={<category/>}/>
+          <Route path ="/:category" element={<Category/>}/>
           <Route path ="/search/:query" element={<Search/>}/>
           <Route path ="/:type/:slug" element={<singlegif/>}/>
           <Route path ="/favourites" element={<Favourites/>}/>

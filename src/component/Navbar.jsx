@@ -77,7 +77,7 @@ const Navbar = () => {
         <div className='absolute right-0 top-14 px-10 pt-6 pb-9 w-full gradient z-20 '> 
           <span className="text-3xl font-extrabold">Categories</span>
             <hr className="bg-gray-100 opacity-50 my-5" />
-          <span>{categories.map((category)=>{return <span>{category.name}</span>})}</span>
+          <span>{categories.map((category)=>{return <Link to= {`/${category.name_encoded}`} onClick={()=>(setShowCategories(!showCategories))}>{category.name}</Link>})}</span>
         </div>
         }
         
