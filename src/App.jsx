@@ -2,7 +2,7 @@ import Navbar from "./component/Navbar";
 import Home from "./pages/Home";
 import Category from "./pages/Category";
 import Search from "./pages/Search";
-import singlegif from "./pages/singlegif";
+import SingleGif from "./pages/SingleGif";
 import Favourites from "./pages/Favourites";
 import { BrowserRouter as Router,Route,Routes } from "react-router-dom";
 
@@ -16,7 +16,7 @@ export default function App() {
           <Route path ="/" element={<Home/>}/>
           <Route path ="/:category" element={<Category/>}/>
           <Route path ="/search/:query" element={<Search/>}/>
-          <Route path ="/:type/:slug" element={<singlegif/>}/>
+          <Route path ="/:type/:slug" element={<SingleGif/>}/>
           <Route path ="/favourites" element={<Favourites/>}/>
           
         </Routes>

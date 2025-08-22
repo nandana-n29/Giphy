@@ -7,7 +7,7 @@ const Gif = ({gif}) => {
     // const{gf,gifs,setGifs,}
   return (
     <div>
-        <Link key={gif.id} to={`/${gif.title}s/${gif.slug}`}>
+        <Link key={gif.id} to={`/${gif.type}s/${gif.slug}`}>
         
             <img src={gif.images.original.webp}  alt={gif.title}/>
         
