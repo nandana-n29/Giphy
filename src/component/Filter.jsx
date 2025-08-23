@@ -34,12 +34,12 @@ const Filter = ({alignLeft = false, showTrending = false}) => {
       {showTrending && (
         <span className="flex gap-2">
           {showTrending && (
-            <HiMiniArrowTrendingUp size={25} className="text-teal-400" />
+            <HiMiniArrowTrendingUp size={25} className="text-teal-400 ml-3" />
           )}
-          <span className="font-semibold text-gray-400">Trending</span>
+          <span className="font-semibold text-gray-400 text-2xl ">Trending</span>
         </span>
       )}
-      <div className="flex min-w-40 rounded-full bg-gray-800 space justify-evenly ">
+      <div className="flex min-w-40 rounded-full bg-gray-800 space justify-evenly mr-3 ">
         {filters.map((f) => {
           return (
             <span

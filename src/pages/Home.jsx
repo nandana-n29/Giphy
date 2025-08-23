@@ -1,61 +1,49 @@
-import React from 'react'
-import { GifState } from '../context/gifcontext';
-// import { GifState } from '../context/gifcontext';
-import Gif from '../component/Gif';
-import { useEffect } from 'react';
-import Filter from '../component/Filter';
-
+import React, { useEffect } from 'react'
+import { GifState } from '../context/gifcontext'
+import Gif from '../component/Gif'
+import Filter from '../component/Filter'
 
 const Home = () => {
+  const { gifs, setGifs, filter } = GifState()
 
-  const {gf,gifs,setGifs,filter,setFilter} = GifState();
-
-  const fetchTrending = async() => {
-    let endpoint = "";
-
-    if (filter === "gifs") {
-      endpoint = "gifs";
-    } else if (filter === "stickers") {
-      endpoint = "stickers";
-    } 
-    const result= await fetch(
+  const fetchTrending = async () => {
+    let endpoint = filter === "stickers" ? "stickers" : "gifs" // default gifs
+    const result = await fetch(
       `https://api.giphy.com/v1/${endpoint}/trending?api_key=${import.meta.env.VITE_GIPHY_KEY}`
-    );
-    const output = await result.json();
-    console.log(output.data);
-    setGifs(output.data);
-    
+    )
+    const output = await result.json()
+    console.log(output.data)
+    setGifs(output.data)
+  }
 
-
-  };
-
-  useEffect( () => {
-    fetchTrending();
-  }, [filter]);
+  useEffect(() => {
+    fetchTrending()
+  }, [filter])
 
   return (
-    <div className='w-full min-h-screen overflow-hidden'>
-      <img
-        src="/banner.gif"
-        alt="earth banner"
-        className="mt-2 rounded w-full"
-      />
-    
-    <div>
-
-      <Filter showTrending></Filter>
-
-      <div >
-        {gifs?.map( (gif) => {
-          return<Gif gif={gif} key={gif.id}/>
-
-        })
-        }
-        
-        
-      </div>
+    <div className=" w-full min-h-screen overflow-x-hidden ">
       
-    </div>
+       {/* <div className="mt-2 mx-2"> */}
+    <img
+      src="/banner.gif"
+      alt="earth banner"
+      className="w-full rounded-md px-2 mt-2 "
+    />
+       {/* </div> */}
+      
+
+      <div>
+        <Filter showTrending />
+
+        {/* Masonry layout */}
+        <div className="columns-2 md:columns-3 lg:columns-4 gap-4 p-4">
+          {gifs?.map((gif) => (
+            <div key={gif.id} className="mb-4 break-inside-avoid">
+              <Gif gif={gif} />
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   )
 }

@@ -16,9 +16,9 @@ const SearchGif = () => {
     };
 
   return (
-    <div className='flex relative mt-4 '>
+    <div className='flex relative mt-4 mx-2'>
 
-        <input type="text" value={query} placeholder="Search all the GIFs and Stickers" onChange={ (e) => {setQuery(e.target.value)}} className='w-full pl-4 pr-14 py-5 text-xl text-black rounded-tl rounded-bl border border-gray-300 outline-none' />  
+        <input type="text" value={query} placeholder="Search all the GIFs and Stickers" onChange={ (e) => {setQuery(e.target.value)}} className='w-full pl-4 pr-14 py-5 text-xl text-black rounded-tl rounded-bl border border-gray-300 outline-none ' />  
 
         {<button onClick={ () => setQuery("")}><HiMiniXMark size={22} className="absolute bg-gray-300 opacity-90 rounded-full right-20 mr-2 top-6 "/></button>}  
 
