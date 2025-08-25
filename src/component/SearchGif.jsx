@@ -16,7 +16,7 @@ const SearchGif = () => {
     };
 
   return (
-    <div className='flex relative mt-4 ml-2 mr-2'>
+    <div className='flex relative mt-4 mx-2'>
 
         <input type="text" value={query} placeholder="Search all the GIFs and Stickers" onChange={ (e) => {setQuery(e.target.value)}} className='w-full pl-4 pr-14 py-5 text-xl text-black rounded-tl rounded-bl border border-gray-300 outline-none ' />  
 
